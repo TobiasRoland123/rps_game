@@ -10,6 +10,9 @@ const paperButton = document.querySelector(".paper");
 const scissorsButton = document.querySelector(".scissors");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
+const lose = document.querySelector("#lose");
+const win = document.querySelector("#win");
+const draw = document.querySelector("#draw");
 
 window.addEventListener("load", function () {
   start();
@@ -21,6 +24,9 @@ window.addEventListener("load", function () {
     console.log("You chose: " + userChoice);
 
     ranNumGen();
+    lose.classList.add("hidden");
+    win.classList.add("hidden");
+    draw.classList.add("hidden");
     player1.classList.add("shake");
     player1.addEventListener("animationend", compChooses);
     player2.classList.add("shake");
@@ -35,6 +41,9 @@ window.addEventListener("load", function () {
     console.log("You chose: " + userChoice);
 
     ranNumGen();
+    lose.classList.add("hidden");
+    win.classList.add("hidden");
+    draw.classList.add("hidden");
     player1.classList.add("shake");
     player1.addEventListener("animationend", compChooses);
     player2.classList.add("shake");
@@ -48,6 +57,9 @@ window.addEventListener("load", function () {
     console.log("You chose: " + userChoice);
 
     ranNumGen();
+    lose.classList.add("hidden");
+    win.classList.add("hidden");
+    draw.classList.add("hidden");
     player1.classList.add("shake");
     player1.addEventListener("animationend", compChooses);
     player2.classList.add("shake");
@@ -113,32 +125,38 @@ function compareChoices() {
 
   if (userChoice == "rock" && compChoice == "scissors") {
     userPoint++;
+    win.classList.remove("hidden");
 
     console.log("du har: " + userPoint + "point");
   }
 
   if (userChoice == "paper" && compChoice == "rock") {
     userPoint++;
+    win.classList.remove("hidden");
     console.log("du har: " + userPoint + "point");
   }
 
   if (userChoice == "scissors" && compChoice == "paper") {
-    player1.classList.add("scissors");
     userPoint++;
+    win.classList.remove("hidden");
     console.log("du har: " + userPoint + "point");
   }
   if (userChoice == compChoice) {
+    draw.classList.remove("hidden");
     console.log("Draw");
   }
   if (compChoice == "rock" && userChoice == "scissors") {
+    lose.classList.remove("hidden");
     compPoint++;
     console.log("computeren har " + compPoint + " point");
   }
   if (compChoice == "paper" && userChoice == "rock") {
+    lose.classList.remove("hidden");
     compPoint++;
     console.log("computeren har " + compPoint + " point");
   }
   if (compChoice == "scissors" && userChoice == "paper") {
+    lose.classList.remove("hidden");
     compPoint++;
     console.log("computeren har " + compPoint + " point");
   }
