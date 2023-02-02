@@ -73,10 +73,13 @@ function ranNumGen() {
 function compChooses() {
   if (compNum == 1) {
     compChoice = "rock";
+    player2.classList.add("rock");
   } else if (compNum == 2) {
     compChoice = "paper";
+    player2.classList.add("paper");
   } else {
     compChoice = "scissors";
+    player2.classList.add("scissors");
   }
 
   console.log("Computer chose; " + compChoice);
