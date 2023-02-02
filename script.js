@@ -13,16 +13,36 @@ window.addEventListener("load", function () {
   start();
 
   rockButton.addEventListener("click", () => {
-    userNum = 1;
-    userChooses();
+    // userNum = 1;
+    userChoice = "rock";
+    console.log("You chose: " + userChoice);
+    ranNumGen();
+    compChooses();
+
+    compareChoices();
+    // userChooses();
   });
   paperButton.addEventListener("click", () => {
-    userNum = 2;
-    userChooses();
+    // userNum = 2;
+    userChoice = "paper";
+    console.log("You chose: " + userChoice);
+    ranNumGen();
+    compChooses();
+
+    compareChoices();
+
+    // userChooses();
   });
   scissorsButton.addEventListener("click", () => {
-    userNum = 3;
-    userChooses();
+    // userNum = 3;
+    userChoice = "scissors";
+    console.log("You chose: " + userChoice);
+    ranNumGen();
+    compChooses();
+
+    compareChoices();
+
+    // userChooses();
   });
 });
 
@@ -35,7 +55,7 @@ function start() {
 function ranNumGen() {
   compNum = Math.floor(Math.random() * 3) + 1;
   //   console.log(compNum);
-  compChooses();
+  // compChooses();
 }
 
 // translates numbers to rock, paper, or scissors.
@@ -49,38 +69,49 @@ function compChooses() {
   }
   //   compChoice = "paper";
 
-  console.log(compChoice);
+  console.log("Computer chose; " + compChoice);
 }
 
-function userChooses() {
-  if (userNum == 1) {
-    userChoice = "rock";
-  } else if (userNum == 2) {
-    userChoice = "paper";
-  } else {
-    userChoice = "scissors";
-  }
-  console.log(userChoice);
-  compareChoices();
-}
+// function userChooses() {
+//   if (userNum == 1) {
+//     userChoice = "rock";
+//   } else if (userNum == 2) {
+//     userChoice = "paper";
+//   } else {
+//     userChoice = "scissors";
+//   }
+//   console.log("You chose: " + userChoice);
+//   compareChoices();
+// }
 
 function compareChoices() {
-  if ((userChoice == "rock") & (compChoice == "scissors")) {
+  if (userChoice == "rock" && compChoice == "scissors") {
     userPoint++;
     console.log("du har: " + userPoint + "point");
   }
-  if ((userChoice == "paper") & (compChoice == "rock")) {
+
+  if (userChoice == "paper" && compChoice == "rock") {
     userPoint++;
     console.log("du har: " + userPoint + "point");
   }
-  if ((userChoice == "scissors") & (compChoice == "paper")) {
+
+  if (userChoice == "scissors" && compChoice == "paper") {
     userPoint++;
     console.log("du har: " + userPoint + "point");
-  } else if (userChoice == compChoice) {
+  }
+  if (userChoice == compChoice) {
     console.log("Draw");
-  } else {
+  }
+  if (compChoice == "rock" && userChoice == "scissors") {
     compPoint++;
     console.log("computeren har " + compPoint + " point");
   }
-  ranNumGen();
+  if (compChoice == "paper" && userChoice == "rock") {
+    compPoint++;
+    console.log("computeren har " + compPoint + " point");
+  }
+  if (compChoice == "scissors" && userChoice == "paper") {
+    compPoint++;
+    console.log("computeren har " + compPoint + " point");
+  }
 }
